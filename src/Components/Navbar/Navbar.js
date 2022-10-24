@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/UserContext";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <div class='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
       <div class='relative flex items-center justify-between'>
@@ -67,30 +71,60 @@ export const Nav = () => {
               Blogs
             </a>
           </li>
-
-          <div className='avatar'>
-            <div className='w-10 rounded-full'>
-              <img src='https://placeimg.com/192/192/people' />
+          {user ? (
+            <div className='avatar'>
+              <div className='w-10 rounded-full'>
+                {user.photoURL ? (
+                  <img src={user.photoURL} title={user.displayName} />
+                ) : (
+                  <img
+                    src=' https://media.istockphoto.com/photos/positive-millennial-black-man-student-with-books-on-yellow-picture-id1369136607?b=1&k=20&m=1369136607&s=170667a&w=0&h=ENhIBRRkb8bDG6eqAFWEWg_UPljzF6t-Z9h3Ju7088k='
+                    title={user.displayName}></img>
+                )}
+              </div>
             </div>
-          </div>
-          <li>
-            <Link
-              to='/login'
-              class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-              aria-label='Sign In'
-              title='Sign In'>
-              Sign In
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/register'
-              class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-              aria-label='Sign up'
-              title='Sign up'>
-              Sign up
-            </Link>
-          </li>
+          ) : (
+            <></>
+          )}
+          {/* <div className='avatar'>
+            <div className='w-10 rounded-full'>
+              <img src={user.photoURL} />
+            </div>
+          </div> */}
+
+          {user ? (
+            <li>
+              <Link
+                onClick={handleLogout}
+                to='/'
+                class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                aria-label='Log out'
+                title='Log out'>
+                Log out
+              </Link>
+            </li>
+          ) : (
+            <>
+              <li>
+                <Link
+                  to='/login'
+                  class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                  aria-label='Sign In'
+                  title='Sign In'>
+                  Sign In
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/register'
+                  class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                  aria-label='Sign up'
+                  title='Sign up'>
+                  Sign up
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
         <div class='lg:hidden'>
           <button

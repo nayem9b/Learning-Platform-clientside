@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 const Login = () => {
-  const { googleSignIn, githubSignIn, userSignIn } = useContext(AuthContext);
-
+  const { googleSignIn, githubSignIn, userSignIn, user } =
+    useContext(AuthContext);
+  const notify = () => toast("Here is your toast.");
   // Google Login
   const handleGoogleLogin = () => {
     googleSignIn()
@@ -35,6 +37,48 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
+        notify();
+        toast.custom((t) => (
+          <div
+            className={`${
+              t.visible ? "animate-enter" : "animate-leave"
+            } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}>
+            <div className='flex-1 w-0 p-4'>
+              <div className='flex items-start'>
+                <div className='flex-shrink-0 pt-0.5'>
+                  {user.photoURL ? (
+                    <img
+                      className='h-10 w-10 rounded-full'
+                      src={user.photoURL}
+                      alt=''
+                    />
+                  ) : (
+                    <img
+                      className='h-10 w-10 rounded-full'
+                      src=' https://media.istockphoto.com/photos/positive-millennial-black-man-student-with-books-on-yellow-picture-id1369136607?b=1&k=20&m=1369136607&s=170667a&w=0&h=ENhIBRRkb8bDG6eqAFWEWg_UPljzF6t-Z9h3Ju7088k='></img>
+                  )}
+                </div>
+                <div className='ml-3 flex-1'>
+                  <p className='text-sm font-medium text-gray-900'>
+                    {user.displayName}
+                  </p>
+                  <p className='mt-1 text-sm text-gray-500'>
+                    Sucessfully Logged in
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='flex border-l border-gray-200'>
+              <button
+                onClick={() => toast.dismiss(t.id)}
+                className='w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500'>
+                Close
+              </button>
+            </div>
+          </div>
+        ));
+        toast.success("Successfully toasted!");
       })
       .catch((error) => console.log(error));
   };
@@ -150,6 +194,7 @@ const Login = () => {
           </main>
         </div>
       </section>
+      <Toaster />
     </div>
   );
 };
