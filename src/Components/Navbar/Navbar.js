@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 export const Nav = () => {
@@ -54,13 +54,13 @@ export const Nav = () => {
             </a>
           </li>
           <li>
-            <a
-              href='/'
+            <Link
+              to='/courses'
               aria-label='Product pricing'
               title='Product pricing'
               class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
               Courses
-            </a>
+            </Link>
           </li>
           <li>
             <a

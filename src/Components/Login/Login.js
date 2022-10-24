@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import GoogleButton from "react-google-button";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -7,7 +7,8 @@ import { AuthContext } from "../../Context/UserContext";
 const Login = () => {
   const { googleSignIn, githubSignIn, userSignIn, user } =
     useContext(AuthContext);
-  const notify = () => toast("Here is your toast.");
+
+  const [error, setError] = useState("");
   // Google Login
   const handleGoogleLogin = () => {
     googleSignIn()
@@ -38,7 +39,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        notify();
+
         toast.custom((t) => (
           <div
             className={`${
@@ -78,9 +79,8 @@ const Login = () => {
             </div>
           </div>
         ));
-        toast.success("Successfully toasted!");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => toast.error(error.message));
   };
   return (
     <div>
