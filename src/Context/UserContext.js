@@ -4,6 +4,7 @@ import {
   getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
@@ -28,7 +29,11 @@ const UserContext = ({ children }) => {
   const userSignUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  const authInfo = { googleSignIn, githubSignIn, userSignUp };
+  //User SignIn
+  const userSignIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  const authInfo = { googleSignIn, githubSignIn, userSignUp, userSignIn };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

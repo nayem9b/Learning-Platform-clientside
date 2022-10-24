@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { googleSignIn, githubSignIn, userSignUp } = useContext(AuthContext);
   const signInWIthGoogle = () => {
     googleSignIn()
@@ -35,6 +36,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
