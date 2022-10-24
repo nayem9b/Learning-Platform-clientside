@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 const Register = () => {
-  const { googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn, userSignUp } = useContext(AuthContext);
   const signInWIthGoogle = () => {
     googleSignIn()
       .then((result) => {
@@ -15,6 +16,22 @@ const Register = () => {
 
   const githubLogin = () => {
     githubSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const fullName = form.fullName.value;
+    const email = form.email.value;
+    const photoURL = form.photoURL.value;
+    const password = form.password.value;
+    const confirmPassword = form.password_confirmation.value;
+    userSignUp(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -89,7 +106,10 @@ const Register = () => {
                 </p>
               </div>
 
-              <form action='#' class='mt-8 grid grid-cols-6 gap-6'>
+              <form
+                onSubmit={handleSignUp}
+                action='#'
+                class='mt-8 grid grid-cols-6 gap-6'>
                 <div class='col-span-6 sm:col-span-3'>
                   <label
                     for='FirstName'
@@ -99,8 +119,8 @@ const Register = () => {
 
                   <input
                     type='text'
-                    id='FirstName'
-                    name='first_name'
+                    id='fullName'
+                    name='fullName'
                     class='mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm'
                   />
                 </div>
@@ -114,8 +134,8 @@ const Register = () => {
 
                   <input
                     type='text'
-                    id='LastName'
-                    name='last_name'
+                    id='photoURL'
+                    name='photoURL'
                     class='mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm'
                   />
                 </div>
@@ -181,16 +201,16 @@ const Register = () => {
                   </label>
                 </div>
 
-                <div class='col-span-6'>
-                  <p class='text-sm text-gray-500'>
+                <div class='flex col-span-6'>
+                  <p class=' flex text-sm text-gray-500'>
                     By creating an account, you agree to our
-                    <a href='#' class='text-gray-700 underline'>
+                    <p href='#' class='text-gray-700 underline ml-1 mr-1'>
                       terms and conditions
-                    </a>
+                    </p>
                     and
-                    <a href='#' class='text-gray-700 underline'>
+                    <p href='#' class='text-gray-700 underline ml-1'>
                       privacy policy
-                    </a>
+                    </p>
                     .
                   </p>
                 </div>
@@ -202,9 +222,9 @@ const Register = () => {
 
                   <p class='mt-4 text-sm text-gray-500 sm:mt-0'>
                     Already have an account?
-                    <a href='#' class='text-gray-700 underline'>
+                    <Link to='/login' class='text-gray-700 ml-2 underline'>
                       Log in
-                    </a>
+                    </Link>
                     .
                   </p>
                 </div>
