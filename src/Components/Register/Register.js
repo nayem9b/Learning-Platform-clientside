@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
+import { AuthContext } from "../../Context/UserContext";
 
 const Register = () => {
+  const { googleSignIn, githubSignIn } = useContext(AuthContext);
+  const signInWIthGoogle = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const githubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div>
       <section class='bg-white'>
@@ -191,11 +210,10 @@ const Register = () => {
                 </div>
               </form>
               <div className='flex mt-5'>
-                <GoogleButton></GoogleButton>
+                <GoogleButton onClick={signInWIthGoogle}></GoogleButton>
                 <a
+                  onClick={githubLogin}
                   class='inline-flex ml-6 items-center rounded border-2 border-[#171515] bg-[#171515] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-[#171515] focus:outline-none focus:ring active:opacity-75'
-                  href='/github'
-                  target='_blank'
                   rel='noreferrer'>
                   GitHub
                   <svg
