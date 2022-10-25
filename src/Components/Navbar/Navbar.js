@@ -10,7 +10,7 @@ export const Nav = () => {
   };
   return (
     <div class='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
-      <div class='relative flex items-center justify-between'>
+      <div class='relative  flex items-center justify-between'>
         <Link
           to='/'
           aria-label='Company'
@@ -203,17 +203,17 @@ export const Nav = () => {
                       </a>
                     </li>
                     <li>
-                      <a
-                        href='/'
-                        aria-label='Our product'
+                      <Link
+                        href='/courses'
+                        aria-label='courses'
                         title='Our product'
                         class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                         Courses
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a
-                        href='/'
+                        href='/blogs'
                         aria-label='Product pricing'
                         title='Product pricing'
                         class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
@@ -222,20 +222,29 @@ export const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href='/'
+                        href='/about_us'
                         aria-label='About us'
                         title='About us'
-                        class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+                        class=' font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                         About us
                       </a>
                     </li>
                     <li>
                       <a
-                        href='/'
+                        href='/register'
                         class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
                         aria-label='Sign up'
                         title='Sign up'>
                         Sign up
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href='/login'
+                        class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                        aria-label='Sign in'
+                        title='Sign in'>
+                        Sign in
                       </a>
                     </li>
                   </ul>

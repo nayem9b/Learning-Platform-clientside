@@ -36,18 +36,22 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/courses/${params.id}`);
+          return fetch(
+            `https://web-smasher-server.vercel.app/courses/${params.id}`
+          );
         },
       },
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000"),
+        loader: () => fetch("https://web-smasher-server.vercel.app/"),
       },
       {
         path: "courses/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/courses/${params.id}`);
+          return fetch(
+            `https://web-smasher-server.vercel.app/courses/${params.id}`
+          );
         },
         element: <CourseDetails></CourseDetails>,
       },
