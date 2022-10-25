@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import Checkout from "../Components/CheckOut/Checkout";
 import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import Courses from "../Components/Courses/Courses";
 import Errorpage from "../Components/Error/Errorpage";
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout></Checkout>,
       },
       {
         path: "/courses",
