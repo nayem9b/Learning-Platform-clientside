@@ -1,19 +1,23 @@
 import React, { useContext, useState } from "react";
 import GoogleButton from "react-google-button";
 import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 const Login = () => {
   const { googleSignIn, githubSignIn, userSignIn, user } =
     useContext(AuthContext);
-
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // Google Login
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
+
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => console.log(error));
@@ -25,6 +29,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .then((error) => console.log(error));
   };
@@ -36,10 +41,6 @@ const Login = () => {
     const password = form.password.value;
     userSignIn(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        form.reset();
-
         toast.custom((t) => (
           <div
             className={`${
@@ -79,6 +80,9 @@ const Login = () => {
             </div>
           </div>
         ));
+        navigate(from, { replace: true });
+        const user = result.user;
+        console.log(user);
       })
       .catch((error) => toast.error(error.message));
   };

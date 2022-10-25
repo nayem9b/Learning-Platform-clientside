@@ -1,8 +1,10 @@
+import { getAuth, updateProfile } from "firebase/auth";
 import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
+const auth = getAuth();
 const Register = () => {
   const navigate = useNavigate();
   const { googleSignIn, githubSignIn, userSignUp } = useContext(AuthContext);
@@ -36,6 +38,15 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        updateProfile(auth.currentUser, {
+          displayName: fullName,
+          photoURL: photoURL,
+        })
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+          })
+          .catch((error) => console.log(error));
         navigate("/");
       })
       .catch((error) => console.log(error));

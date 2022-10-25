@@ -93,46 +93,6 @@ const Checkout = () => {
             <div class='bg-white py-12 md:py-24'>
               <div class='mx-auto max-w-lg px-4 lg:px-8'>
                 <form class='grid grid-cols-6 gap-4'>
-                  <div class='col-span-3'>
-                    <label
-                      class='mb-1 block text-sm text-gray-600'
-                      for='first_name'>
-                      First Name
-                    </label>
-
-                    <input
-                      class='w-full rounded-lg border-gray-200 p-2.5 text-sm shadow-sm'
-                      type='text'
-                      id='first_name'
-                    />
-                  </div>
-
-                  <div class='col-span-3'>
-                    <label
-                      class='mb-1 block text-sm text-gray-600'
-                      for='last_name'>
-                      Last Name
-                    </label>
-
-                    <input
-                      class='w-full rounded-lg border-gray-200 p-2.5 text-sm shadow-sm'
-                      type='text'
-                      id='last_name'
-                    />
-                  </div>
-
-                  <div class='col-span-6'>
-                    <label class='mb-1 block text-sm text-gray-600' for='email'>
-                      Email
-                    </label>
-
-                    <input
-                      class='w-full rounded-lg border-gray-200 p-2.5 text-sm shadow-sm'
-                      type='email'
-                      id='email'
-                    />
-                  </div>
-
                   <div class='col-span-6'>
                     <label class='mb-1 block text-sm text-gray-600' for='phone'>
                       Phone
@@ -213,8 +173,8 @@ const Checkout = () => {
                           id='country'
                           name='country'
                           autocomplete='country-name'>
+                          <option>Bangladesh</option>
                           <option>England</option>
-                          <option>Wales</option>
                           <option>Scotland</option>
                           <option>France</option>
                           <option>Belgium</option>
