@@ -32,8 +32,8 @@ const Courses = () => {
 
           <ul class='mt-4 space-y-2'>
             <li>
-              <a
-                href='#'
+              <Link
+                to={`/courses/${id}`}
                 class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
                 <strong class='font-medium text-white'>
                   Overview of {details}
@@ -43,11 +43,11 @@ const Courses = () => {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Maxime consequuntur deleniti, unde ab ut in!
                 </p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to={`/courses/${id}`}
                 class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
                 <strong class='font-medium text-white'>
                   Course Duration : {duration} months
@@ -57,38 +57,38 @@ const Courses = () => {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Maxime consequuntur deleniti, unde ab ut in!
                 </p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to={`/courses/${id}`}
                 class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
                 <strong class='font-medium text-white'>Prerequisites</strong>
 
                 <p class='mt-1 text-xs font-medium text-gray-300'>
                   Basic Logic Building
                 </p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to={`/courses/${id}`}
                 class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
                 <strong class='font-medium text-white'>Instructor</strong>
 
                 <p class='mt-1 text-xs font-medium text-gray-300'>
                   {instructor}
                 </p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to={`/courses/${id}`}
                 class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
                 <strong class='font-medium text-white'>Assignments</strong>
 
                 <p class='mt-1 text-xs font-medium text-gray-300'>{exam}</p>
-              </a>
+              </Link>
             </li>
 
             <li>

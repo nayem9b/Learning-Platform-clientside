@@ -5,16 +5,11 @@ const Card = ({
   setDetails,
   setBonus,
   setDuration,
-  id,
   setId,
   setExam,
-  instructor,
   setInstructor,
 }) => {
   const { logo, name, time, number, teacher, Extra, task } = crdt;
-
-  //   console.log(crdt);
-  //   console.log(time);
   const handleButtonClick = () => {
     setDetails(name);
     setDuration(time);
@@ -22,7 +17,6 @@ const Card = ({
     setInstructor(teacher);
     setBonus(Extra);
     setId(number);
-    console.log(id);
   };
   return (
     <div>
