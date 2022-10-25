@@ -3,14 +3,20 @@ import GoogleButton from "react-google-button";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
+import CodeLoader from "../Loader/CodeLoader";
+import Loader from "../Loader/Loader";
 
 const Login = () => {
-  const { googleSignIn, githubSignIn, userSignIn, user } =
+  const { googleSignIn, githubSignIn, userSignIn, loading, user } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  // if (loading) {
+  //   return <CodeLoader></CodeLoader>;
+  // }
   // Google Login
   const handleGoogleLogin = () => {
     googleSignIn()

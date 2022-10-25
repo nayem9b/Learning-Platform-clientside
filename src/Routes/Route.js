@@ -29,12 +29,15 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/checkout",
+        path: "/courses/:id/checkout/:id",
         element: (
           <PrivateRoute>
             <Checkout></Checkout>
           </PrivateRoute>
         ),
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/courses/${params.id}`);
+        },
       },
       {
         path: "/courses",

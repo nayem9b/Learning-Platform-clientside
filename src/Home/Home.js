@@ -16,6 +16,7 @@ const Home = () => {
           }}
         />
       </div>
+
       <Banner></Banner>
       <Footer></Footer>
     </div>

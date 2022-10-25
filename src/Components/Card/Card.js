@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({
   crdt,
@@ -20,7 +21,7 @@ const Card = ({
   };
   return (
     <div>
-      <button onClick={handleButtonClick} class='group relative block bg-black'>
+      <Link to={`/courses/${number}`} class='group relative block bg-black'>
         <img
           alt='Developer'
           src={logo}
@@ -44,7 +45,7 @@ const Card = ({
             </div>
           </div>
         </div>
-      </button>
+      </Link>
     </div>
   );
 };

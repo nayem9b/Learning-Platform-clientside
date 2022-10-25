@@ -1,6 +1,7 @@
 import { getAuth, updateProfile } from "firebase/auth";
 import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
+import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
@@ -33,23 +34,30 @@ const Register = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
-    const confirmPassword = form.password_confirmation.value;
-    userSignUp(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        updateProfile(auth.currentUser, {
-          displayName: fullName,
-          photoURL: photoURL,
-        })
-          .then((result) => {
-            const user = result.user;
-            console.log(user);
+    const confirmPassword = form.passwordConfirmation.value;
+    console.log(password, confirmPassword);
+
+    if (password === confirmPassword) {
+      userSignUp(email, password)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+          updateProfile(auth.currentUser, {
+            displayName: fullName,
+            photoURL: photoURL,
           })
-          .catch((error) => console.log(error));
-        navigate("/");
-      })
-      .catch((error) => console.log(error));
+            .then((result) => {
+              const user = result.user;
+              console.log(user);
+            })
+            .catch((error) => console.log(error));
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
+    } else {
+      toast.error("This didn't work.");
+      console.log(photoURL);
+    }
   };
   return (
     <div>
@@ -134,6 +142,7 @@ const Register = () => {
                     type='text'
                     id='fullName'
                     name='fullName'
+                    required
                     class='mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm'
                   />
                 </div>
@@ -164,6 +173,7 @@ const Register = () => {
                     type='email'
                     id='Email'
                     name='email'
+                    required
                     class='mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm'
                   />
                 </div>
@@ -179,6 +189,7 @@ const Register = () => {
                     type='password'
                     id='Password'
                     name='password'
+                    required
                     class='mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm'
                   />
                 </div>
@@ -192,8 +203,9 @@ const Register = () => {
 
                   <input
                     type='password'
-                    id='PasswordConfirmation'
-                    name='password_confirmation'
+                    id='Passwordconfirmation'
+                    name='passwordConfirmation'
+                    required
                     class='mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm'
                   />
                 </div>
@@ -265,6 +277,7 @@ const Register = () => {
           </main>
         </div>
       </section>
+      <Toaster />
     </div>
   );
 };

@@ -1,6 +1,9 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
+  const loaderData = useLoaderData();
+  const { name, logo, price, teacher, videos } = loaderData;
   return (
     <div>
       <section>
@@ -13,11 +16,11 @@ const Checkout = () => {
                 <div class='flex items-center'>
                   <span class='h-10 w-10 rounded-full bg-blue-900'></span>
 
-                  <h2 class='ml-4 font-medium'>BambooYou</h2>
+                  <h2 class='ml-4 font-medium text-4xl mt-[-8px]'>{name}</h2>
                 </div>
 
                 <div class='mt-8'>
-                  <p class='text-2xl font-medium tracking-tight'>$99.99</p>
+                  <p class='text-2xl font-medium tracking-tight'>${price}</p>
                   <p class='mt-1 text-sm text-gray-500'>For the purchase of</p>
                 </div>
 
@@ -28,22 +31,22 @@ const Checkout = () => {
                         <div class='flex items-start'>
                           <img
                             alt='Trainer'
-                            src='https://images.unsplash.com/photo-1565299999261-28ba859019bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
+                            src={logo}
                             class='h-16 w-16 flex-shrink-0 rounded-lg object-cover'
                           />
 
                           <div class='ml-4'>
-                            <p class='text-sm'>Vibrant Trainers</p>
+                            <p class='text-sm'>{name}</p>
 
                             <dl class='mt-1 space-y-1 text-xs text-gray-500'>
                               <div>
-                                <dt class='inline'>Color:</dt>
-                                <dd class='inline'>Blue</dd>
+                                <dt class='inline'>By:</dt>
+                                <dd class='inline ml-1'>{teacher}</dd>
                               </div>
 
                               <div>
-                                <dt class='inline'>Size:</dt>
-                                <dd class='inline'>UK 10</dd>
+                                <dt class='inline'>Videos</dt>
+                                <dd class='inline ml-1'>{videos}</dd>
                               </div>
                             </dl>
                           </div>
@@ -51,36 +54,8 @@ const Checkout = () => {
 
                         <div>
                           <p class='text-sm'>
-                            $49.99
+                            {price}
                             <small class='text-gray-500'>x1</small>
-                          </p>
-                        </div>
-                      </li>
-
-                      <li class='flex items-center justify-between py-4'>
-                        <div class='flex items-start'>
-                          <img
-                            alt='Lettuce'
-                            src='https://images.unsplash.com/photo-1640958904159-51ae08bd3412?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80'
-                            class='h-16 w-16 flex-shrink-0 rounded-lg object-cover'
-                          />
-
-                          <div class='ml-4'>
-                            <p class='text-sm'>Lettuce</p>
-
-                            <dl class='mt-1 space-y-1 text-xs text-gray-500'>
-                              <div>
-                                <dt class='inline'>Size:</dt>
-                                <dd class='inline'>Big</dd>
-                              </div>
-                            </dl>
-                          </div>
-                        </div>
-
-                        <div>
-                          <p class='text-sm'>
-                            $25
-                            <small class='text-gray-500'>x2</small>
                           </p>
                         </div>
                       </li>

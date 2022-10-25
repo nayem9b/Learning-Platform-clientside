@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Card from "../Card/Card";
+import SideNav from "../SideNav/SideNav";
 
 const Courses = () => {
   const loaderData = useLoaderData();
@@ -11,9 +12,10 @@ const Courses = () => {
   const [instructor, setInstructor] = useState("");
   const [bonus, setBonus] = useState("");
   const [id, setId] = useState();
+  console.log(CourseData);
   return (
     <div>
-      <div className='flex '>
+      <div className='lg:flex sm:block md:flex'>
         {/* <h1 className='w-1/4'>{details}</h1> */}
         <article class='rounded-xl border border-gray-700 bg-gray-800 p-4 w-1/4'>
           <div class='flex items-center'>
@@ -31,7 +33,27 @@ const Courses = () => {
           </div>
 
           <ul class='mt-4 space-y-2'>
-            <li>
+            {CourseData.map((cr) => (
+              <SideNav cr={cr}></SideNav>
+            ))}
+            {/* {CourseData.map((crdt) => (
+              <Card
+                key={crdt.number}
+                crdt={crdt}
+                details={details}
+                setDetails={setDetails}
+                duration={duration}
+                setDuration={setDuration}
+                bonus={bonus}
+                setBonus={setBonus}
+                instructor={instructor}
+                setInstructor={setInstructor}
+                exam={exam}
+                setExam={setExam}
+                id={id}
+                setId={setId}></Card>
+            ))} */}
+            {/* <li>
               <Link
                 to={`/courses/${id}`}
                 class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
@@ -99,7 +121,7 @@ const Courses = () => {
 
                 <p class='mt-1 text-xs font-medium text-gray-300'>{bonus}</p>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </article>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  w-3/4 justify-center items-center'>
