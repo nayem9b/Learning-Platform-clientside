@@ -1,13 +1,28 @@
 import React from "react";
 
-const Card = ({ crdt, setDetails, details }) => {
-  const { logo, name, total, id } = crdt;
+const Card = ({
+  crdt,
+  setDetails,
+  setBonus,
+  setDuration,
+  id,
+  setId,
+  setExam,
+  instructor,
+  setInstructor,
+}) => {
+  const { logo, name, time, number, teacher, Extra, task } = crdt;
+
   //   console.log(crdt);
-  //   console.log(name);
+  //   console.log(time);
   const handleButtonClick = () => {
-    setDetails(crdt.name);
-    console.log(details);
-    // console.log(crdt.name, crdt.total, crdt.id);
+    setDetails(name);
+    setDuration(time);
+    setExam(task);
+    setInstructor(teacher);
+    setBonus(Extra);
+    setId(number);
+    console.log(id);
   };
   return (
     <div>
