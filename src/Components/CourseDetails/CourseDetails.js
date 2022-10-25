@@ -3,7 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
   const loaderData = useLoaderData();
-  const { number, name, logo, time, task, teacher, Extra, videos } = loaderData;
+  const { number, name, logo, time, task, teacher, Extra, videos, price } =
+    loaderData;
   return (
     <div>
       <h5 className=' text-center text-3xl font-extrabold leading-none sm:text-4xl'>
@@ -52,6 +53,9 @@ const CourseDetails = () => {
             <p className=' flex mb-5 text-gray-800 '>
               <span className='font-bold mr-2'>Assignments:</span>
               <p>{task}</p>
+            </p>
+            <p className=' flex mb-5 text-gray-800 '>
+              <span className='font-bold mr-2'>$ {price}</span>
             </p>
 
             <div className='flex items-center'>

@@ -16,17 +16,12 @@ const Courses = () => {
   return (
     <div>
       <div className='lg:flex sm:block md:flex'>
-        {/* <h1 className='w-1/4'>{details}</h1> */}
-        <article class='rounded-xl border border-gray-700 bg-gray-800 p-4 w-1/4'>
+        <article class='rounded-xl border border-none  p-4 lg:w-1/4'>
           <div class='flex items-center'>
-            <img
-              alt='Developer'
-              src='https://images.unsplash.com/photo-1614644147724-2d4785d69962?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'
-              class='h-16 w-16 rounded-full object-cover'
-            />
+            <h1>Catagories</h1>
 
             <div class='ml-3'>
-              <h3 class='text-lg font-medium text-white'>{details}</h3>
+              <h3 class='text-lg font-medium '>{details}</h3>
 
               <div class='flow-root'></div>
             </div>
@@ -36,95 +31,9 @@ const Courses = () => {
             {CourseData.map((cr) => (
               <SideNav cr={cr}></SideNav>
             ))}
-            {/* {CourseData.map((crdt) => (
-              <Card
-                key={crdt.number}
-                crdt={crdt}
-                details={details}
-                setDetails={setDetails}
-                duration={duration}
-                setDuration={setDuration}
-                bonus={bonus}
-                setBonus={setBonus}
-                instructor={instructor}
-                setInstructor={setInstructor}
-                exam={exam}
-                setExam={setExam}
-                id={id}
-                setId={setId}></Card>
-            ))} */}
-            {/* <li>
-              <Link
-                to={`/courses/${id}`}
-                class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
-                <strong class='font-medium text-white'>
-                  Overview of {details}
-                </strong>
-
-                <p class='mt-1 text-xs font-medium text-gray-300'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Maxime consequuntur deleniti, unde ab ut in!
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={`/courses/${id}`}
-                class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
-                <strong class='font-medium text-white'>
-                  Course Duration : {duration} months
-                </strong>
-
-                <p class='mt-1 text-xs font-medium text-gray-300'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Maxime consequuntur deleniti, unde ab ut in!
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={`/courses/${id}`}
-                class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
-                <strong class='font-medium text-white'>Prerequisites</strong>
-
-                <p class='mt-1 text-xs font-medium text-gray-300'>
-                  Basic Logic Building
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={`/courses/${id}`}
-                class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
-                <strong class='font-medium text-white'>Instructor</strong>
-
-                <p class='mt-1 text-xs font-medium text-gray-300'>
-                  {instructor}
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={`/courses/${id}`}
-                class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
-                <strong class='font-medium text-white'>Assignments</strong>
-
-                <p class='mt-1 text-xs font-medium text-gray-300'>{exam}</p>
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to={`/courses/${id}`}
-                class='block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600'>
-                <strong class='font-medium text-white'>Bonus Content</strong>
-
-                <p class='mt-1 text-xs font-medium text-gray-300'>{bonus}</p>
-              </Link>
-            </li> */}
           </ul>
         </article>
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  w-3/4 justify-center items-center'>
+        <div className='lg:ml-3 sm:ml-0 lg:gap-4 gap-y-4 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  lg:w-3/4  items-center'>
           {CourseData.map((crdt) => (
             <Card
               key={crdt.number}
@@ -142,7 +51,7 @@ const Courses = () => {
               id={id}
               setId={setId}></Card>
           ))}
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

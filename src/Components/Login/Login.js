@@ -5,11 +5,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import CodeLoader from "../Loader/CodeLoader";
 import Loader from "../Loader/Loader";
+import smash from "../../Images/icons8-punch-50.png";
 
 const Login = () => {
   const { googleSignIn, githubSignIn, userSignIn, loading, user } =
     useContext(AuthContext);
-  const [error, setError] = useState("");
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -123,7 +124,7 @@ const Login = () => {
               </a>
 
               <h1 class='mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl'>
-                Log in to Web Smasher 🦑
+                Log in to Web Smasher
               </h1>
 
               <p class='mt-4 leading-relaxed text-gray-500'>

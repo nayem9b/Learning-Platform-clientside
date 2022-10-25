@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
+import navicon from "../../Images/icons8-polymer-96.png";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,27 +10,15 @@ export const Nav = () => {
     logout();
   };
   return (
-    <div class='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+    <div class='px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
       <div class='relative  flex items-center justify-between'>
         <Link
           to='/'
           aria-label='Company'
           title='Company'
           class='inline-flex items-center'>
-          <svg
-            class='w-8 text-deep-purple-accent-400'
-            viewBox='0 0 24 24'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeMiterlimit='10'
-            stroke='currentColor'
-            fill='none'>
-            <rect x='3' y='1' width='7' height='12' />
-            <rect x='3' y='17' width='7' height='6' />
-            <rect x='14' y='1' width='7' height='6' />
-            <rect x='14' y='11' width='7' height='12' />
-          </svg>
+          <img className='w-10 h-15' src={navicon} alt=''></img>
+
           <span class='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
             Web Smasher
           </span>
@@ -204,7 +193,7 @@ export const Nav = () => {
                     </li>
                     <li>
                       <Link
-                        href='/courses'
+                        to='/courses'
                         aria-label='courses'
                         title='Our product'
                         class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
@@ -212,13 +201,13 @@ export const Nav = () => {
                       </Link>
                     </li>
                     <li>
-                      <a
-                        href='/blogs'
+                      <Link
+                        to='/blogs'
                         aria-label='Product pricing'
                         title='Product pricing'
                         class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                         Blogs
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a
@@ -230,22 +219,22 @@ export const Nav = () => {
                       </a>
                     </li>
                     <li>
-                      <a
-                        href='/register'
-                        class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                      <Link
+                        to='/register'
+                        class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
                         aria-label='Sign up'
                         title='Sign up'>
                         Sign up
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href='/login'
-                        class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                      <Link
+                        to='/login'
+                        class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
                         aria-label='Sign in'
                         title='Sign in'>
                         Sign in
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
