@@ -1,14 +1,17 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import Blogs from "../Components/Blogs/Blogs";
 import Checkout from "../Components/CheckOut/Checkout";
 import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import Courses from "../Components/Courses/Courses";
 import Errorpage from "../Components/Error/Errorpage";
+import Faq from "../Components/FAQ/Faq";
+import Features from "../Components/Features/Features";
 import Login from "../Components/Login/Login";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import Register from "../Components/Register/Register";
 import Root from "../Components/Root/Root";
-import Home from "../Home/Home";
+import Home from "../Home/home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +26,18 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/features",
+        element: <Features></Features>,
       },
       {
         path: "/register",

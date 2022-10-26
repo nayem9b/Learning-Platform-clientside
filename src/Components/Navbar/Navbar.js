@@ -16,7 +16,7 @@ export const Nav = () => {
           <Link
             to='/'
             aria-label='Company'
-            title='Company'
+            title='Web Smasher'
             class='inline-flex items-center'>
             <img className='w-10 h-15' src={navicon} alt=''></img>
 
@@ -26,40 +26,40 @@ export const Nav = () => {
           </Link>
           <ul class='flex items-center hidden space-x-8 lg:flex'>
             <li>
-              <a
-                href='/'
+              <Link
+                to='/faq'
                 aria-label='Our product'
-                title='Our product'
+                title='FAQ'
                 class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='/'
+              <Link
+                to='/features'
                 aria-label='Our product'
-                title='Our product'
+                title='Features'
                 class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                 Features
-              </a>
+              </Link>
             </li>
             <li>
               <Link
                 to='/courses'
                 aria-label='Product pricing'
-                title='Product pricing'
+                title='Courses'
                 class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                 Courses
               </Link>
             </li>
             <li>
-              <a
-                href='/'
+              <Link
+                to='/blogs'
                 aria-label='About us'
-                title='About us'
+                title='Blogs'
                 class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                 Blogs
-              </a>
+              </Link>
             </li>
             {user ? (
               <div className='avatar'>
@@ -76,11 +76,6 @@ export const Nav = () => {
             ) : (
               <></>
             )}
-            {/* <div className='avatar'>
-            <div className='w-10 rounded-full'>
-              <img src={user.photoURL} />
-            </div>
-          </div> */}
 
             {user ? (
               <li>
@@ -138,7 +133,7 @@ export const Nav = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div class='absolute top-0 left-0 w-full'>
+              <div class='absolute z-20 top-0 left-0 w-full'>
                 <div class='p-5 bg-white border rounded shadow-sm'>
                   <div class='flex items-center justify-between mb-4'>
                     <div>
@@ -147,22 +142,13 @@ export const Nav = () => {
                         aria-label='Company'
                         title='Company'
                         class='inline-flex items-center'>
-                        <svg
-                          class='w-8 text-deep-purple-accent-400'
-                          viewBox='0 0 24 24'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeMiterlimit='10'
-                          stroke='currentColor'
-                          fill='none'>
-                          <rect x='3' y='1' width='7' height='12' />
-                          <rect x='3' y='17' width='7' height='6' />
-                          <rect x='14' y='1' width='7' height='6' />
-                          <rect x='14' y='11' width='7' height='12' />
-                        </svg>
+                        <img
+                          className='w-10 h-15'
+                          src={navicon}
+                          alt='Web Smasher'
+                        />
                         <span class='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-                          Company
+                          Web Smasher
                         </span>
                       </a>
                     </div>
@@ -184,19 +170,19 @@ export const Nav = () => {
                   <nav>
                     <ul class='space-y-4'>
                       <li>
-                        <a
-                          href='/'
+                        <Link
+                          to='/'
                           aria-label='Our product'
-                          title='Our product'
+                          title='Home'
                           class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
-                          FAQ
-                        </a>
+                          Home
+                        </Link>
                       </li>
                       <li>
                         <Link
                           to='/courses'
                           aria-label='courses'
-                          title='Our product'
+                          title='Courses'
                           class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                           Courses
                         </Link>
@@ -205,38 +191,56 @@ export const Nav = () => {
                         <Link
                           to='/blogs'
                           aria-label='Product pricing'
-                          title='Product pricing'
+                          title='Blogs'
                           class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                           Blogs
                         </Link>
                       </li>
                       <li>
-                        <a
-                          href='/about_us'
+                        <Link
+                          to='/aboutus'
                           aria-label='About us'
                           title='About us'
                           class=' font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
                           About us
-                        </a>
-                      </li>
-                      <li>
-                        <Link
-                          to='/register'
-                          class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-                          aria-label='Sign up'
-                          title='Sign up'>
-                          Sign up
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to='/login'
-                          class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-                          aria-label='Sign in'
-                          title='Sign in'>
-                          Sign in
-                        </Link>
-                      </li>
+
+                      {user ? (
+                        <>
+                          {" "}
+                          <Link
+                            onClick={handleLogout}
+                            to='/'
+                            class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                            aria-label='Log out'
+                            title='Log out'>
+                            Log out
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          {" "}
+                          <li>
+                            <Link
+                              to='/register'
+                              class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                              aria-label='Sign up'
+                              title='Sign up'>
+                              Sign up
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to='/login'
+                              class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+                              aria-label='Sign in'
+                              title='Sign in'>
+                              Sign in
+                            </Link>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </nav>
                 </div>

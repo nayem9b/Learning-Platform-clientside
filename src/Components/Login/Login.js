@@ -128,8 +128,8 @@ const Login = () => {
               </h1>
 
               <p class='mt-4 leading-relaxed text-gray-500'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
+                A guided programme for those who want to pursue their future
+                while learning technologies
               </p>
 
               <form

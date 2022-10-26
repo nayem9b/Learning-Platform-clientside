@@ -18,7 +18,7 @@ const Courses = () => {
       <div className='lg:flex sm:block md:flex'>
         <article class='rounded-xl border border-none  p-4 lg:w-1/4'>
           <div class='flex items-center'>
-            <h1>Catagories</h1>
+            <h1 className='text-3xl'>Categories</h1>
 
             <div class='ml-3'>
               <h3 class='text-lg font-medium '>{details}</h3>
