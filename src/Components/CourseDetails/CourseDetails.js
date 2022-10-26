@@ -1,15 +1,40 @@
 import React from "react";
+import { jsPDF } from "jspdf";
 import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
   const loaderData = useLoaderData();
   const { number, name, logo, time, task, teacher, Extra, videos, price } =
     loaderData;
+
+  const handleDownload = () => {
+    const doc = new jsPDF();
+
+    doc.text(
+      `Details about ${name} course:
+    Course name : ${name}
+    Course Instructor : ${teacher}
+    Number of Assignments : ${task}
+    Duration of the course : ${time} months
+    Bonus Videos : ${Extra}
+    Price of the course : ${price}
+    `,
+      10,
+      10
+    );
+    doc.save(`${name}.pdf`);
+  };
   return (
     <div>
       <h5 className=' text-center text-3xl font-extrabold leading-none sm:text-4xl'>
         {name}
       </h5>
+      <button
+        onClick={handleDownload}
+        class='inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500'
+        href='/download'>
+        Download
+      </button>
       <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
         <div className='flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto'>
           <div className='relative lg:w-1/2'>
