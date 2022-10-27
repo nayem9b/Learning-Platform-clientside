@@ -225,16 +225,16 @@ const Register = () => {
                   </label>
                 </div>
 
-                <div class='flex col-span-6'>
-                  <p class=' flex text-sm text-gray-500'>
+                <div class=' col-span-6'>
+                  <p class='  text-sm text-gray-500'>
                     By creating an account, you agree to our
-                    <p href='#' class='text-gray-700 underline ml-1 mr-1'>
+                    <span href='#' class='text-gray-700 underline ml-1 mr-1'>
                       terms and conditions
-                    </p>
+                    </span>
                     and
-                    <p href='#' class='text-gray-700 underline ml-1'>
+                    <span href='#' class='text-gray-700 underline ml-1'>
                       privacy policy
-                    </p>
+                    </span>
                     .
                   </p>
                 </div>

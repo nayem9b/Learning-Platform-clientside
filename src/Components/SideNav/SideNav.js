@@ -20,7 +20,7 @@ const SideNav = ({ cr }) => {
           </div>
 
           <p class='mt-1 text-sm font-medium '>{teacher}</p>
-          <p class='mt-1 text-xs font-medium '>{price}</p>
+          <p class='mt-1 text-xs font-medium '> $ {price}</p>
         </Link>
       </li>
     </div>
