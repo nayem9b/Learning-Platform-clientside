@@ -2,17 +2,20 @@ import { getAuth, updateProfile } from "firebase/auth";
 import React, { useContext } from "react";
 import GoogleButton from "react-google-button";
 import toast, { Toaster } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 const auth = getAuth();
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const { googleSignIn, githubSignIn, userSignUp } = useContext(AuthContext);
   const signInWIthGoogle = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => console.log(error));
@@ -22,6 +25,7 @@ const Register = () => {
     githubSignIn()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => console.log(error));
@@ -51,7 +55,7 @@ const Register = () => {
               console.log(user);
             })
             .catch((error) => console.log(error));
-          navigate("/");
+          navigate(from, { replace: true });
         })
         .catch((error) => console.log(error));
     } else {
