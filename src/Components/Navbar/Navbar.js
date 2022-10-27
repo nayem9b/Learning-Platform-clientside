@@ -89,7 +89,7 @@ export const Nav = () => {
                   ) : (
                     <img
                       src=' https://media.istockphoto.com/photos/positive-millennial-black-man-student-with-books-on-yellow-picture-id1369136607?b=1&k=20&m=1369136607&s=170667a&w=0&h=ENhIBRRkb8bDG6eqAFWEWg_UPljzF6t-Z9h3Ju7088k='
-                      title='photoURL is not updated'></img>
+                      title={user.displayName}></img>
                   )}
                 </div>
               </div>
