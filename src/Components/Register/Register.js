@@ -17,7 +17,7 @@ const Register = () => {
       })
       .catch((error) => console.log(error));
   };
-
+  // GitHub Login
   const githubLogin = () => {
     githubSignIn()
       .then((result) => {
@@ -26,7 +26,7 @@ const Register = () => {
       })
       .catch((error) => console.log(error));
   };
-
+  // Email SignUp
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -55,8 +55,7 @@ const Register = () => {
         })
         .catch((error) => console.log(error));
     } else {
-      toast.error("This didn't work.");
-      console.log(photoURL);
+      toast.error("Password didn't matched");
     }
   };
   return (
@@ -90,8 +89,8 @@ const Register = () => {
               </h2>
 
               <p class='mt-4 leading-relaxed text-white/90'>
-                A guided programme for those who want to pursue their future
-                while learning technologies
+                A guided programme for those who want to pursue their future in
+                web technologies
               </p>
             </div>
           </section>
@@ -118,12 +117,12 @@ const Register = () => {
                 </a>
 
                 <h1 class='mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl'>
-                  Welcome to Squid 🦑
+                  Welcome to Code Smasher
                 </h1>
 
                 <p class='mt-4 leading-relaxed text-gray-500'>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
+                  A guided programme for those who want to pursue their future
+                  in web technologies
                 </p>
               </div>
 

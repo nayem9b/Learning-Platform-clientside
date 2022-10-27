@@ -26,15 +26,18 @@ const CourseDetails = () => {
   };
   return (
     <div>
-      <h5 className=' text-center text-3xl font-extrabold leading-none sm:text-4xl'>
-        {name}
-      </h5>
-      <button
-        onClick={handleDownload}
-        class='inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500'
-        href='/download'>
-        Download
-      </button>
+      <div className=' items-center justify-center flex'>
+        <h5 className=' text-center text-3xl font-extrabold leading-none sm:text-4xl'>
+          {name}
+        </h5>
+        <button
+          onClick={handleDownload}
+          class=' ml-3 text-center rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500'
+          href='/download'>
+          Download
+        </button>
+      </div>
+
       <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
         <div className='flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto'>
           <div className='relative lg:w-1/2'>

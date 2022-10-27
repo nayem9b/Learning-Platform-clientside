@@ -128,8 +128,8 @@ const Login = () => {
               </h1>
 
               <p class='mt-4 leading-relaxed text-gray-500'>
-                A guided programme for those who want to pursue their future
-                while learning technologies
+                A guided programme for those who want to pursue their future in
+                web technologies
               </p>
 
               <form

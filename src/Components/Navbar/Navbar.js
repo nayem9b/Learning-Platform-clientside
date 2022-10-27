@@ -1,11 +1,15 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
+import { Switch } from "@headlessui/react";
+import { FaBeer } from "react-icons/fa";
+import { FaRegLightbulb, FaCertificate } from "react-icons/fa";
 import navicon from "../../Images/icons8-polymer-96.png";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const [enabled, setEnabled] = useState(false);
   const handleLogout = () => {
     logout();
   };
@@ -61,6 +65,21 @@ export const Nav = () => {
                 Blogs
               </Link>
             </li>
+            <Switch
+              checked={enabled}
+              onChange={setEnabled}
+              className={`${
+                enabled ? "bg-blue-600" : "bg-gray-200"
+              } relative inline-flex h-6 w-11 items-center rounded-full`}>
+              <span className='sr-only'>Enable notifications</span>
+              <span
+                className={`${
+                  enabled ? "translate-x-6" : "translate-x-1"
+                } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+              />
+            </Switch>
+
+            {enabled ? <FaCertificate /> : <FaRegLightbulb />}
             {user ? (
               <div className='avatar'>
                 <div className='w-10 rounded-full'>

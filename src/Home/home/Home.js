@@ -22,7 +22,7 @@ const Home = () => {
       <div className=' flex justify-center lg:ml-[400px] lg:mt-[-66px] md:h-[100px] md:w-[100px] lg:h-[800px] sm:h-[100px] sm:w-[300px] lg:w-[800px]'>
         <Lottie animationData={learn} loop={true} />
       </div>
-      <h1 className='lg:mt-40 lg:mb-72 text-8xl w-full text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-500 lg:inline'>
+      <h1 className='lg:mt-40 lg:mb-72 text-8xl w-full sm:text-start text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-500 lg:inline'>
         Make the move
       </h1>
 
