@@ -12,6 +12,7 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import Register from "../Components/Register/Register";
 import Root from "../Components/Root/Root";
 import Home from "../Home/home/Home";
+import AboutUs from "../Components/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/features",

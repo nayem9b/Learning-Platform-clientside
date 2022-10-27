@@ -80,19 +80,19 @@ const Footer = () => {
               <nav aria-label='Footer Services Nav' class='mt-8'>
                 <ul class='space-y-4 text-sm'>
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Web Development
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Web Design
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
@@ -104,11 +104,11 @@ const Footer = () => {
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Google Ads
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -120,43 +120,43 @@ const Footer = () => {
               <nav aria-label='Footer Resources Nav' class='mt-8'>
                 <ul class='space-y-4 text-sm'>
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Online Guides
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Conference Notes
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Forum
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Downloads
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Upcoming Events
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -168,25 +168,25 @@ const Footer = () => {
               <nav aria-label='Footer Helpful Nav' class='mt-8'>
                 <ul class='space-y-4 text-sm'>
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       FAQs
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='text-gray-700 transition hover:text-gray-700/75'
-                      href='/'>
+                      to='/courses'>
                       Support
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       class='group flex justify-center gap-1.5 sm:justify-start'
-                      href='/'>
+                      to='/courses'>
                       <span class='text-gray-700 transition group-hover:text-gray-700/75'>
                         Live Chat
                       </span>
@@ -195,7 +195,7 @@ const Footer = () => {
                         <span class='absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75'></span>
                         <span class='relative inline-flex h-2 w-2 rounded-full bg-teal-500'></span>
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>

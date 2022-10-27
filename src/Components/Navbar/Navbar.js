@@ -2,9 +2,9 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import { Switch } from "@headlessui/react";
-import { FaBeer } from "react-icons/fa";
 import { FaRegLightbulb, FaCertificate } from "react-icons/fa";
 import navicon from "../../Images/icons8-polymer-96.png";
+import toast from "react-hot-toast";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +12,7 @@ export const Nav = () => {
   const [enabled, setEnabled] = useState(false);
   const handleLogout = () => {
     logout();
+    toast.error("User logged out");
   };
   return (
     <div>

@@ -1,16 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({
-  crdt,
-  setDetails,
-  setBonus,
-  setDuration,
-  setId,
-  setExam,
-  setInstructor,
-}) => {
-  const { logo, name, time, number, teacher, Extra, task, price } = crdt;
+const Card = ({ crdt }) => {
+  const { logo, number, price } = crdt;
 
   return (
     <div>

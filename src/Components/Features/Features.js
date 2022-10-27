@@ -1,4 +1,3 @@
-import { LottiePlayer } from "lottie-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
@@ -17,7 +16,7 @@ const Features = () => {
           </span>
         </button>
       </Link>
-      <div className=' flex justify-center lg:ml-[400px] lg:mt-[-66px] md:h-[100px] md:w-[100px] lg:h-[800px] sm:h-[100px] sm:w-[300px] lg:w-[800px]'>
+      <div className=' flex justify-center lg:ml-[400px] md:ml-[170px] lg:mt-[-66px] md:h-[500px] md:w-[500px] lg:h-[800px] sm:h-[100px] sm:w-[300px] lg:w-[800px]'>
         <Lottie animationData={feature} loop={true} />
       </div>
     </div>

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const SideNav = ({ cr }) => {
-  const [id, setId] = useState();
-  const { logo, name, time, number, teacher, Extra, task, price } = cr;
+  const { logo, name, number, teacher, price } = cr;
   console.log(name, number);
   return (
     <div>

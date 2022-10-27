@@ -55,7 +55,7 @@ const Register = () => {
         })
         .catch((error) => console.log(error));
     } else {
-      toast.error("Password didn't matched");
+      toast.error("Password didn't match");
     }
   };
   return (
